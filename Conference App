@@ -1,0 +1,49 @@
+Conference App
+-------------
+Create Conference
+Delete Conference
+List Conference
+Conference Detail
+
+Speakers
+--------
+Create Speaker
+Delete Speaker
+Speaker List
+Speaker Detail
+
+
+Sponsors
+--------
+Create Sponsor
+Delete Sponsor
+Sponsor List
+Sposor Detail
+
+Conference
+-----------------
+title
+date
+location
+speaker
+sponsor
+
+Speaker
+-------
+name
+picture
+gender
+profession
+
+
+Sponsor
+-------
+name
+logo
+address
+
+
+
+
+
+
