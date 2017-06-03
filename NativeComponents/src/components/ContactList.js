@@ -4,7 +4,8 @@ import {
 	Text,
 	View,
 	StyleSheet,
-	Image
+	Image,
+	ActivityIndicator
 } from 'react-native';
 import {getRandomColor} from '../utils'
 
@@ -18,7 +19,8 @@ export default  class ContactList extends React.Component {
 			sectionHeaderHasChanged: (s1, s2) => s1 !== s2
 		});
 		this.state = {
-			dataSource: ds.cloneWithRowsAndSections(props.contacts)
+			dataSource: ds.cloneWithRowsAndSections(props.contacts),
+			loading: true
 		}
 	}
 
@@ -35,17 +37,21 @@ export default  class ContactList extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
-		return <ListView
-			pageSize={20}
-			dataSource={this.state.dataSource}
-			renderRow={this.renderRow}
-			renderSectionHeader={(sectionData, alpha) => {
+		if (this.state.loading) {
+			setTimeout(() => this.setState({loading: false}), 2000);
+			return <ActivityIndicator animating={this.state.loading} color={"#ad62ef"} size={'large'}/>
+		}
+		else
+			return <ListView
+				pageSize={20}
+				dataSource={this.state.dataSource}
+				renderRow={this.renderRow}
+				renderSectionHeader={(sectionData, alpha) => {
 				return (<View>
 				<Text style={[styles.sectionHeader, {backgroundColor: getRandomColor()}]}>{alpha.toUpperCase()}</Text>
 				</View>)
 			}}
-		/>
+			/>
 	}
 
 	static
