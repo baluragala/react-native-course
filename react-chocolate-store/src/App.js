@@ -4,6 +4,15 @@ import './App.css';
 import List from './List'
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={}
+  }
+
+  componentWillMount(){
+
+  }
+
   render() {
     return (
       <div className="App">
